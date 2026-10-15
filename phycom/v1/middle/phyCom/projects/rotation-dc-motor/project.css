@@ -219,3 +219,61 @@
 .fan-project .project-guide #guideOutputHint{margin:0;max-width:none}
 .project-guide #guideOutputHint .entry-block{font-size:28px;white-space:nowrap}
 .project-guide #guideOutputHint .field,.project-guide #guideOutputHint .number-field,.project-guide #guideOutputHint .project-variable{font-size:26px}
+
+/* Requested changes limited to circuit page, guide page and task page. */
+.fan-project .project-circuit #projectCircuit .circuit-labels{font:900 36px Arial,sans-serif}
+.project-guide .guide-topline{justify-content:flex-start;gap:18px;min-height:112px;margin-bottom:16px}
+.project-guide .guide-topline>p{font-size:32px;white-space:nowrap;margin:0}
+.project-guide .guide-topline .guide-shape-order{font-size:30px;margin:0}
+.project-guide .guide-topline #guideNumberObject{gap:18px;padding:20px 0 0 8px;margin:0}
+.project-guide .guide-variable-input{margin-bottom:20px}
+.project-guide #guideVariable .project-variable{font-size:30px}
+.project-guide .guide-input-slot{height:108px}
+.project-guide .guide-output-slot{min-height:100px;display:flex;align-items:center}
+.project-guide #guideOutputEquation{font-size:32px;font-weight:800}
+.project-guide #guideInputHint .number-field{background:#ffca36!important}
+.fan-project .project-entry:not(.project-study) #projectCode{padding-right:0!important}
+.fan-project .project-entry:not(.project-study) #projectCode .entry-block{font-size:26px!important;min-height:52px!important;height:auto!important;padding-top:6px!important;padding-bottom:6px!important;gap:9px!important}
+.fan-project .project-entry:not(.project-study) #projectCode .field,.fan-project .project-entry:not(.project-study) #projectCode .number-field{font-size:25px!important;padding:5px 10px!important;min-height:34px!important}
+.fan-project .project-entry:not(.project-study) #projectCode .repeat-block{width:350px}
+.fan-project .project-entry:not(.project-study) #taskMap{width:max-content;max-width:none;flex-wrap:nowrap;white-space:nowrap;font-size:22px;line-height:1.4}
+.fan-project .project-entry:not(.project-study) #taskMap .field,.fan-project .project-entry:not(.project-study) #taskMap .number-field{font-size:22px!important}
+.fan-project .project-entry:not(.project-study) #projectResult{top:108px;bottom:24px;height:auto;width:32%;right:2%;padding:14px}
+.fan-project .project-entry:not(.project-study) #projectResult h2{font-size:23px!important;line-height:1.35;margin:0 28px 10px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .result-layout{zoom:1;display:grid;grid-template-columns:1fr;grid-template-rows:1.25fr 1fr;width:100%;height:calc(100% - 70px)!important;gap:12px;margin:0}
+.fan-project .project-entry:not(.project-study) #projectResult .dial-area{padding:8px}
+.fan-project .project-entry:not(.project-study) #projectResult .rotation-dial{zoom:.65}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts{grid-template-columns:1fr 84px;gap:0 8px}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts p{font-size:22px;margin:5px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts small{font-size:17px}
+.fan-project .project-entry:not(.project-study) #projectResult .live-number{width:84px;height:84px}
+.fan-project .project-entry:not(.project-study) #projectResult .live-number b{font-size:54px}
+.fan-project .project-entry:not(.project-study) #projectResult .conversion-note{font-size:17px;margin:7px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .demo-levels{gap:9px;margin-top:8px}
+.fan-project .project-entry:not(.project-study) #projectResult .demo-levels span{width:36px;height:36px;font-size:24px}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area{min-height:0;overflow:hidden}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area svg{width:100%;height:210px}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area strong{font-size:24px;margin:6px 0}
+
+.fan-project .project-entry:not(.project-study) .project-number{right:37%}
+.fan-project .project-entry:not(.project-study) #projectResult h2{word-break:keep-all}
+
+/* Guide emphasis and the task's wide code above two existing result panes. */
+.project-guide .guide-topline>p>b,.project-guide .guide-variable-row>b,.project-guide .guide-variable-input p>b,.project-guide .guide-conversion-note>b,.project-guide .guide-output-condition>b{color:#134e75;background:#e7f2fb;border-radius:7px}
+.project-guide .guide-shape-order b,.project-guide #guideOutputEquation{color:#8a4600;background:#fff1c9;border-radius:7px;font-weight:900}
+.project-guide .guide-variable-input strong,.project-guide .guide-conversion-note strong{color:#075b51;background:#e4f5eb;border-radius:5px;font-weight:900}
+.project-guide .guide-topline>p,.project-guide .guide-variable-input p,.project-guide .guide-conversion-note{color:#354b5d}
+.fan-project .project-entry:not(.project-study) #projectResult{left:96px;right:22px;top:550px;bottom:16px;width:auto;height:auto;padding:10px 14px}
+.fan-project .project-entry:not(.project-study) #projectResult h2{font-size:23px!important;line-height:1.2;margin:0 28px 8px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .result-layout{grid-template-columns:1fr 1fr;grid-template-rows:1fr;height:calc(100% - 38px)!important;gap:18px}
+.fan-project .project-entry:not(.project-study) #projectResult .dial-area{display:grid;grid-template-columns:200px 1fr;align-content:center;align-items:center;gap:5px 10px;padding:8px}
+.fan-project .project-entry:not(.project-study) #projectResult .rotation-dial{zoom:.65;grid-column:1;grid-row:1}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts{grid-column:2;grid-row:1;grid-template-columns:1fr 84px}
+.fan-project .project-entry:not(.project-study) #projectResult .conversion-note{grid-column:1 / -1;margin:0;font-size:18px}
+.fan-project .project-entry:not(.project-study) #projectResult .demo-levels{grid-column:1 / -1;margin:2px 0 0}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area{flex-direction:row;gap:14px}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area svg{width:230px;height:220px}
+.fan-project .project-entry:not(.project-study) .project-number{right:24px}
+
+/* Task blocks retain their original size throughout construction. */
+.fan-project .project-entry:not(.project-study) #projectCode{transform:none!important;zoom:1}

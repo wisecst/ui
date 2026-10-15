@@ -10,22 +10,22 @@
  template.querySelectorAll('[mask],[clip-path]').forEach(el=>{for(const key of ['mask','clip-path'])if(el.hasAttribute(key))el.setAttribute(key,el.getAttribute(key).replace(/intro-/g,''))});
  result.append(template);
  const sharedInput=q('#rotationInput');
-const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀을 켭니다. 실행 결과를 확인하세요.','자료: 변수 단계의 처음 값은 0입니다.','흐름: 계속 반복하기를 연결합니다. 이후 코드는 반복문 안에 넣습니다.','하드웨어: A1 값을 0~1023에서 0~100으로 바꾸는 블록을 선택합니다.','변환 블록을 변수 단계의 값 자리에 넣습니다.','변환 범위의 100을 5로 바꿉니다.','생김새: 단계1 모양으로 바꾸기','자료: 변수 단계 값을 선택합니다.','계산: 단계 값 + 1을 결합하여 모양 번호로 사용합니다.','하드웨어: 디지털 10번 핀을 255로 정하기','계산: 10 × 10 블록을 선택합니다.','255 대신 곱셈 블록을 넣습니다.','자료: 변수 단계 값을 선택합니다.','첫 번째 10 대신 단계 값을 넣습니다.','두 번째 10을 25로 바꿉니다. 다음을 눌러 최종 실행결과를 확인하세요.'];
+const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀을 켭니다. 실행 결과를 확인하세요.','','흐름: 계속 반복하기를 연결합니다. 이후 코드는 반복문 안에 넣습니다.','하드웨어: A1 값을 0~1023에서 0~100으로 바꾸는 블록을 선택합니다.','변환 블록을 변수 단계의 값 자리에 넣습니다.','변환 범위의 100을 5로 바꿉니다.','생김새: 단계1 모양으로 바꾸기','자료: 변수 단계 값을 선택합니다.','계산: 단계 값 + 1을 결합하여 모양 번호로 사용합니다.','하드웨어: 디지털 10번 핀을 255로 정하기','계산: 10 × 10 블록을 선택합니다.','255 대신 곱셈 블록을 넣습니다.','자료: 변수 단계 값을 선택합니다.','첫 번째 10 대신 단계 값을 넣습니다.','두 번째 10을 25로 바꿉니다. 다음을 눌러 최종 실행결과를 확인하세요.'];
  const tabs=['start','start','hardware','data','flow','hardware','data','hardware','looks','data','math','hardware','math','hardware','data','hardware','math'];
  const field=x=>`<span class="field">${x}<span class="select-arrow">▼</span></span>`,num=x=>`<span class="number-field">${x}</span>`;
- const studyInstructions=['다음 버튼을 누르며 연결을 확인해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀 켜기 · 옆 ▶로 실행 결과를 확인합니다.','계속 반복하기','반복문 안에 안녕! 을 말하기를 넣습니다.','하드웨어: 아날로그 A1 센서의 입력값을 선택합니다.','안녕! 자리에 센서 블록을 넣습니다. 반복문 옆 ▶로 입력을 확인합니다.','완성한 A1 반복 코드 세트를 오른쪽으로 이동합니다.','비워진 자리에 새 계속 반복하기를 만듭니다. 다음을 눌러 실행 결과를 확인하세요.','반복문 안에 동작이 없으므로 모터는 정지해 있습니다.','새 반복문 안에 D10 켜기를 넣습니다. 다음을 눌러 실행 결과를 확인하세요.','왼쪽 D10 모터와 오른쪽 A1 입력값을 각각 확인하세요.'];
+ const studyInstructions=['다음 버튼을 누르며 연결을 확인해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀 켜기 · 옆 ▶로 실행 결과를 확인합니다.','계속 반복하기','반복문 안에 안녕! 을 말하기를 넣습니다.','하드웨어: 아날로그 A1 센서의 입력값을 선택합니다.','안녕! 자리에 센서 블록을 넣습니다. 반복문 옆 ▶로 입력을 확인합니다.','완성한 A1 반복 코드 세트를 오른쪽으로 이동합니다.','비워진 자리에 새 계속 반복하기를 만듭니다.','반복문 안에 동작이 없으므로 모터는 정지해 있습니다.','새 반복문 안에 D10 켜기를 결합하고 실행 결과를 확인합니다.','왼쪽 D10 모터와 오른쪽 A1 입력값을 각각 확인하세요.'];
  const studyTabs=['start','start','hardware','flow','looks','hardware','looks','flow','flow','flow','hardware','hardware'];
  const studyPage=pages[2],taskPage=pages[4],studyCode=q('#studyCode'),studyMotorCode=q('#studyMotorCode'),studyResult=q('#studyResult'),studyPin=q('#studyPinModal');
  const taskPalette=q('#taskPalette'),map=q('#taskMap'),shapeValue=q('#taskShapeValue'),product=q('#taskProduct'),factorValue=q('#taskFactorValue'),sensor=q('#studySensor');
  // Page 3 uses copies of the existing task blocks and object, not a separate block design.
  function guideCopy(node){const copy=node.cloneNode(true);copy.removeAttribute('hidden');[copy,...copy.querySelectorAll('*')].forEach(el=>{el.removeAttribute('id');el.removeAttribute('data-entry-step');el.removeAttribute('data-tab')});return copy}
  for(let value=0;value<=5;value++){const item=document.createElement('div');item.className='guide-number-shape';const shape=guideCopy(q('#introDemo .live-number'));shape.querySelector('b').textContent=value;const number=document.createElement('span');number.className='guide-shape-number';number.textContent=value+1;item.append(number,shape);q('#guideNumberObject').append(item)}
- const guideVariableBlock=guideCopy(code.querySelector('[data-entry-step="3"]'));guideVariableBlock.classList.add('entry-show');guideVariableBlock.querySelector('.number-field').replaceWith(guideCopy(factorValue));q('#guideVariable').append(guideVariableBlock);
+ q('#guideVariable').append(guideCopy(factorValue));
  const guideMap=guideCopy(map);guideMap.querySelectorAll('.number-field')[3].textContent='5';
  const guideInputBlock=guideCopy(code.querySelector('[data-entry-step="6"]'));guideInputBlock.classList.add('entry-show');guideInputBlock.querySelector('span:not(.field):not(.select-arrow)').append(guideMap);q('#guideInputHint').append(guideInputBlock);
  const guideProduct=guideCopy(product);guideProduct.firstElementChild.replaceChildren(guideCopy(factorValue));guideProduct.lastElementChild.textContent='25';
  const guideOutputBlock=guideCopy(code.querySelector('[data-entry-step="11"]'));guideOutputBlock.classList.add('entry-show');guideOutputBlock.querySelector('span:not(.field):not(.select-arrow)').replaceChildren(guideProduct);q('#guideOutputHint').append(guideOutputBlock);
- function renderGuide(){q('#guideInputHint').hidden=guideStep<1;q('#guideOutputHint').hidden=false}
+ function renderGuide(){q('#guideInputHint').hidden=guideStep<1;q('#guideOutputHint').hidden=guideStep<2;q('#guideOutputEquation').hidden=guideStep<2}
  // The existing lessons reveal fixed blocks and expand their existing repeat-body.
  // Reporters keep the very same DOM node when moved from palette to value slot.
  function paintProgram(program,n,loopAt){
@@ -64,7 +64,7 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
   studyPage.querySelectorAll('.entry-tab').forEach(el=>el.classList.toggle('active-tab',el.dataset.tab===studyTabs[studyStep]));
   q('#studyProgress').textContent=studyInstructions[studyStep];
   paintRun(q('#studyPinRun'),!studyPin.hidden);paintRun(q('#studyLoopRun'),!studyResult.hidden,studyStep>=6);
-  paintRun(q('#studyMotorRun'),!q('#studyMotorResult').hidden,studyStep>=8);
+  paintRun(q('#studyMotorRun'),!q('#studyMotorResult').hidden,studyStep>=10);
   studyCode.classList.toggle('running',!studyResult.hidden||!studyPin.hidden);studyCode.classList.toggle('result-running',!studyResult.hidden);
   studyMotorCode.classList.toggle('running',!q('#studyMotorResult').hidden);studyMotorCode.classList.toggle('result-running',!q('#studyMotorResult').hidden);
  }
@@ -80,16 +80,16 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
  }
  function openResult(){if(step!==16)return;stop();result.hidden=false;completed=true;window.lessonUI.completeResult(taskPage);timer=cycle(result,'');renderCode();requestAnimationFrame(fitCode)}
  function openPin(){stop();pin.hidden=false;pinSeen=true;renderCode();requestAnimationFrame(fitCode)}
- function renderCircuit(){q('#projectCircuit').querySelectorAll('[data-circuit-stage]').forEach(el=>{el.style.visibility=Number(el.dataset.circuitStage)<=circuit?'visible':'hidden'});q('#circuitProgress').textContent=['연결할 모듈과 핀을 먼저 확인합니다.','보드 전원: 5V → + / GND → −','모듈 전원: 가변저항 VCC·GND / DC모터 V·G','신호 연결: 가변저항 OUT → A1 / DC모터 S → D10'][circuit]}
+ function renderCircuit(){q('#projectCircuit').querySelectorAll('[data-circuit-stage]').forEach(el=>{el.style.visibility=Number(el.dataset.circuitStage)<=circuit?'visible':'hidden'});q('#circuitProgress').textContent=['연결할 모듈과 핀을 먼저 확인합니다.','보드 전원: 5V → + / GND → −','모듈 전원: 가변저항 VCC·GND / DC모터 V·G',''][circuit]}
  function show(index){index=Math.max(0,Math.min(4,index));if(window.hardwareConnect?.before(page,index,show)) {stop();cancelAnimationFrame(introTimer);return}
   stop();cancelAnimationFrame(introTimer);page=index;pages.forEach((p,i)=>p.classList.toggle('active',i===page));[...list.querySelectorAll('.slide-sidebar-item')].forEach((b,i)=>b.classList.toggle('active',i===page));q('#slides').textContent=window.hardwareConnect?.number(page,5)||window.lessonPages.counter(pages[page]);q('#prev').disabled=page===0;q('#next').disabled=false;document.body.classList.toggle('entry-page',page===2||page===4);document.body.classList.toggle('after-intro',page>0);renderCode();renderStudy();renderCircuit();renderGuide();if(page===0)introTimer=cycle(q('#introDemo'),'intro-');requestAnimationFrame(fitCode)}
  function next(){if(page===2&&studyStep===6&&studyInputSeen){stop();studyStep=7;renderStudy();requestAnimationFrame(fitCode);return}if(page===2&&studyStep===9){stop();studyStep=10;renderStudy();requestAnimationFrame(fitCode);return}if(!result.hidden||!pin.hidden||!studyResult.hidden||!studyPin.hidden||!q('#studyMotorResult').hidden){stop();return}if(page===1&&circuit<3){circuit++;renderCircuit();return}
   if(page===3&&guideStep<2){guideStep++;renderGuide();return}
-  if(page===2){if(studyStep===2&&!studyPinSeen){openStudyPin();return}if(studyStep===6&&!studyInputSeen){openStudyResult();return}if(studyStep<11){studyStep++;renderStudy();if(studyStep===9||studyStep===11)openStudyResult('motor');requestAnimationFrame(fitCode);return}if(!studyCompleted){openStudyResult();return}show(3);return}
-  if(page===4){if(step===2&&!pinSeen){openPin();return}if(step<16){step++;renderCode();requestAnimationFrame(fitCode);return}openResult();return}show(page+1)}
- function previous(){if(!result.hidden||!pin.hidden||!studyResult.hidden||!studyPin.hidden||!q('#studyMotorResult').hidden){stop();return}if(page===1&&circuit>0){circuit--;renderCircuit();return}if(page===3&&guideStep>0){guideStep--;renderGuide();return}if(page===2&&studyStep>0){studyStep--;if(studyStep<2)studyPinSeen=false;if(studyStep<6)studyInputSeen=false;renderStudy();return}if(page===4&&step>0){step--;if(step<2)pinSeen=false;renderCode();return}show(page-1)}
+  if(page===2){if(studyStep===2&&!studyPinSeen){openStudyPin();return}if(studyStep===6&&!studyInputSeen){openStudyResult();return}if(studyStep<11){studyStep=studyStep===8?10:studyStep+1;renderStudy();if(studyStep===10)openStudyResult('motor');requestAnimationFrame(fitCode);return}if(!studyCompleted){openStudyResult();return}show(3);return}
+  if(page===4){if(step===2&&!pinSeen){openPin();return}if(step<16){step=step===2?4:step+1;renderCode();requestAnimationFrame(fitCode);return}openResult();return}show(page+1)}
+ function previous(){if(!result.hidden||!pin.hidden||!studyResult.hidden||!studyPin.hidden||!q('#studyMotorResult').hidden){stop();return}if(page===1&&circuit>0){circuit--;renderCircuit();return}if(page===3&&guideStep>0){guideStep--;renderGuide();return}if(page===2&&studyStep>0){studyStep--;if(studyStep<2)studyPinSeen=false;if(studyStep<6)studyInputSeen=false;renderStudy();return}if(page===4&&step>0){step=step===4?2:step-1;if(step<2)pinSeen=false;renderCode();return}show(page-1)}
  // Use the normal motor lesson's stage-fit rule, with no block position calculations.
- function fitCode(){if(page!==2&&page!==4)return;if(page===2&&studyStep>=7){studyCode.style.setProperty('transform','none','important');return}const program=page===2?studyCode:code,stage=pages[page].querySelector('.entry-stage');if(!window.lessonStage)return;program.style.setProperty('transform','none','important');const r=window.lessonStage.rect(program),sr=window.lessonStage.rect(stage),right=sr.right-20;const measure=window.lessonStage.measure(program),scale=Math.min(1,(right-r.left)/Math.max(1,measure.width),(sr.bottom-20-r.top)/Math.max(1,measure.height));program.style.setProperty('transform','scale('+Math.max(.25,scale)+')','important')}
+ function fitCode(){if(page===4){code.style.setProperty('transform','none','important');return}if(page!==2)return;if(page===2&&studyStep>=7){studyCode.style.setProperty('transform','none','important');return}const program=page===2?studyCode:code,stage=pages[page].querySelector('.entry-stage');if(!window.lessonStage)return;program.style.setProperty('transform','none','important');const r=window.lessonStage.rect(program),sr=window.lessonStage.rect(stage),right=sr.right-20;const measure=window.lessonStage.measure(program),scale=Math.min(1,(right-r.left)/Math.max(1,measure.width),((page===4?window.lessonStage.rect(taskPage).top+540:sr.bottom-20)-r.top)/Math.max(1,measure.height));program.style.setProperty('transform','scale('+Math.max(.25,scale)+')','important')}
  function updateStudy(value){studyValue=Math.max(0,Math.min(1023,Math.round(value)));q('#studyInput').value=studyValue;q('#studySpeech').textContent=studyValue;q('#studyDial').setAttribute('aria-valuenow',studyValue);q('#studyDial .dial-pointer').style.transform=`rotate(${-120+studyValue/1023*240}deg)`}
  const studyFan=q('#studyFan'),fanTemplate=q('#introDemo .fan-area svg').cloneNode(true);
  fanTemplate.querySelectorAll('[id]').forEach(el=>el.id=el.id.replace(/^intro-/,'study-'));
@@ -97,10 +97,10 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
  function openStudyPin(){stop();studyPin.hidden=false;studyPinSeen=true;renderStudy();requestAnimationFrame(fitCode)}
  function closeStudyInput(){stopStudyDemo();studyResult.hidden=true;renderStudy()}
  function closeStudyMotor(){q('#studyMotorResult').hidden=true;q('#studyMotorResult').classList.remove('running');renderStudy()}
- function openStudyResult(kind=studyStep>=8?'motor':'input'){
+ function openStudyResult(kind=studyStep>=10?'motor':'input'){
   studyPin.hidden=true;
   if(kind==='input'){if(studyStep<6)return;studyInputSeen=true;studyResult.hidden=false;stopStudyDemo();startStudyDemo()}
-  else{if(studyStep<8)return;const motor=q('#studyMotorResult');motor.hidden=false;motor.classList.toggle('running',studyStep>=10);motor.style.setProperty('--fan-period','.42s');q('#studyMotorStatus').textContent=studyStep<10?'반복할 동작 없음 · 모터 정지':'D10 켜기 · 모터 회전';if(studyStep>=11){studyCompleted=true;window.lessonUI.completeResult(studyPage);studyResult.hidden=false;stopStudyDemo();startStudyDemo()}}
+  else{if(studyStep<10)return;const motor=q('#studyMotorResult');motor.hidden=false;motor.classList.toggle('running',studyStep>=10);motor.style.setProperty('--fan-period','.42s');q('#studyMotorStatus').textContent=studyStep<10?'반복할 동작 없음 · 모터 정지':'D10 켜기 · 모터 회전';if(studyStep>=10){studyCompleted=true;window.lessonUI.completeResult(studyPage);studyResult.hidden=false;stopStudyDemo();startStudyDemo()}}
   renderStudy();requestAnimationFrame(fitCode)
  }
  function startStudyDemo(){const started=performance.now();function animate(now){const phase=((now-started)/dialLegDuration)%2;updateStudy(1023*(phase<=1?phase:2-phase));studyTimer=requestAnimationFrame(animate)}updateStudy(0);studyTimer=requestAnimationFrame(animate)}
