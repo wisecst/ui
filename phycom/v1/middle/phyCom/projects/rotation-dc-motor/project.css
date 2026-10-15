@@ -213,8 +213,8 @@
 .project-guide #guideInputHint .entry-block{font-size:28px;white-space:nowrap}
 .project-guide #guideInputHint .project-map,.project-guide #guideInputHint .field,.project-guide #guideInputHint .number-field{font-size:24px!important}
 .project-guide .guide-output-condition{font-size:36px;line-height:1.3;margin:12px 0}
-.project-guide .guide-output-row{display:grid;grid-template-columns:530px minmax(0,1fr);align-items:center;gap:24px}
-.project-guide .output-table{grid-template-columns:140px repeat(6,1fr);font-size:34px;font-weight:800}
+.project-guide .guide-output-row{display:grid;grid-template-columns:560px minmax(0,1fr);align-items:center;gap:24px}
+.project-guide .output-table{grid-template-columns:170px repeat(6,1fr);font-size:34px;font-weight:800}
 .project-guide .output-table>*{padding:14px 3px}
 .fan-project .project-guide #guideOutputHint{margin:0;max-width:none}
 .project-guide #guideOutputHint .entry-block{font-size:28px;white-space:nowrap}
