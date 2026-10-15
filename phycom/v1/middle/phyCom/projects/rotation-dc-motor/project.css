@@ -151,3 +151,71 @@
 .project-guide .guide-motor-relation{font-size:30px;font-weight:800;margin:0 0 12px}
 
 .fan-project:has(.project-circuit.active) main.wrap>header,.fan-project:has(.project-guide.active) main.wrap>header{height:106px!important;box-sizing:border-box}
+
+.project-guide .guide-shape-order{font-size:23px;line-height:1.4;margin:8px 0 10px}
+.project-guide .guide-conditions p{margin:8px 0}
+
+.fan-project .project-guide-subtitle{display:none}
+
+.project-study #studyMotorResult{left:auto;right:2%;top:110px;bottom:56px;width:40%;box-sizing:border-box;padding:24px 20px}
+.project-study #studyMotorResult .fan-area{width:100%;height:calc(100% - 55px)}
+.project-study #studyMotorResult .fan-area svg{width:100%;height:85%}
+.project-study #studyMotorResult.running .motor-motion-fan{animation-play-state:running}
+
+.fan-project #studySayBlock[hidden]{display:none!important}
+
+.fan-project .project-study #studyCode[hidden],.fan-project .project-study #studyMotorCode[hidden]{display:none!important}
+
+/* Page 4: retain both independent repeat sets for comparison. */
+.fan-project .project-study.study-compare #studyCode{width:100%!important;box-sizing:border-box;padding-right:0!important}
+.project-study #studyA1Set>.repeat-block,.project-study #studyMotorCode>.repeat-block{margin-left:22px!important}
+.project-study.study-compare #studyA1Set{position:absolute;left:52%;top:122px}
+.fan-project .project-study #studyMotorCode[hidden]{display:none!important}
+.project-study.study-compare #studyResult,.project-study.study-compare #studyMotorResult{
+ top:380px;bottom:auto;height:300px;width:43%;box-sizing:border-box;padding:14px 18px
+}
+.project-study.study-compare #studyResult{left:auto;right:2%}
+.project-study.study-compare #studyMotorResult{left:8%;right:auto}
+.project-study.study-compare .study-result h2{font-size:24px!important;margin:0 28px 8px 0}
+.project-study.study-compare #studyResult .result-layout{height:calc(100% - 40px)}
+.project-study.study-compare #studyResult .study-input-panel{gap:12px}
+.project-study.study-compare #studyResult .rotation-dial{zoom:.55}
+.project-study.study-compare #studyResult .dial-area{padding:4px}
+.project-study.study-compare #studyResult .dial-area p{font-size:18px;margin:4px}
+.project-study.study-compare #studyResult .study-entrybot img{width:100px}
+.project-study.study-compare #studyResult .study-speech{font-size:26px;padding:8px;margin:4px}
+.project-study #studyMotorStatus{font-size:18px;margin:0 0 4px}
+.project-study.study-compare #studyMotorResult .fan-area{height:calc(100% - 60px)}
+.project-study.study-compare #studyMotorResult .fan-area svg{height:100%;width:100%}
+
+/* Page 5: the same number object with Entry shape indices. */
+.project-guide #guideNumberObject{display:flex;align-items:center;gap:24px;padding:10px 0 0 8px}
+.project-guide .guide-number-shape{position:relative}
+.project-guide #guideNumberObject .live-number{width:84px;height:84px}
+.project-guide #guideNumberObject .live-number b{font-size:54px}
+.project-guide .guide-shape-number{position:absolute;left:-10px;top:-12px;color:#2786e8;font:bold 20px Arial,sans-serif;z-index:1}
+
+/* Page 5 only: larger guide with the completed output table beside its code. */
+.fan-project .project-guide{padding:22px 26px}
+.project-guide .guide-topline{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.project-guide .guide-topline p{font-size:36px;line-height:1.25;margin:0 0 18px}
+.project-guide .guide-topline .guide-shape-order{font-size:36px;margin-right:18px}
+.project-guide .guide-variable-input{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:24px;margin:0 0 12px}
+.project-guide .guide-variable-row{display:flex;align-items:center;gap:18px;font-size:36px;white-space:nowrap}
+.project-guide .guide-variable-input p{font-size:34px;line-height:1.3;margin:0}
+.project-guide #guideVariable{margin:0}
+.project-guide #guideVariable .entry-block{display:flex!important;font-size:26px;min-height:50px;margin:0;white-space:nowrap}
+.project-guide #guideVariable .field,.project-guide #guideVariable .project-variable{font-size:26px}
+.project-guide #guideNumberObject{margin:8px 0 12px;padding-top:18px;gap:30px}
+.project-guide .guide-shape-number{font-size:30px;font-weight:900;color:#0648a8;left:-10px;top:-20px}
+.project-guide .guide-conversion-note{font-size:34px;line-height:1.3;margin:12px 0}
+.fan-project .project-guide #guideInputHint{margin-top:10px;margin-bottom:18px}
+.project-guide #guideInputHint .entry-block{font-size:28px;white-space:nowrap}
+.project-guide #guideInputHint .project-map,.project-guide #guideInputHint .field,.project-guide #guideInputHint .number-field{font-size:24px!important}
+.project-guide .guide-output-condition{font-size:36px;line-height:1.3;margin:12px 0}
+.project-guide .guide-output-row{display:grid;grid-template-columns:530px minmax(0,1fr);align-items:center;gap:24px}
+.project-guide .output-table{grid-template-columns:140px repeat(6,1fr);font-size:34px;font-weight:800}
+.project-guide .output-table>*{padding:14px 3px}
+.fan-project .project-guide #guideOutputHint{margin:0;max-width:none}
+.project-guide #guideOutputHint .entry-block{font-size:28px;white-space:nowrap}
+.project-guide #guideOutputHint .field,.project-guide #guideOutputHint .number-field,.project-guide #guideOutputHint .project-variable{font-size:26px}
