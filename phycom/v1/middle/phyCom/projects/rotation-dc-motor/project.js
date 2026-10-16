@@ -10,7 +10,7 @@
  template.querySelectorAll('[mask],[clip-path]').forEach(el=>{for(const key of ['mask','clip-path'])if(el.hasAttribute(key))el.setAttribute(key,el.getAttribute(key).replace(/intro-/g,''))});
  result.append(template);
  const sharedInput=q('#rotationInput');
-const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀을 켭니다. 실행 결과를 확인하세요.','','흐름: 계속 반복하기를 연결합니다. 이후 코드는 반복문 안에 넣습니다.','하드웨어: A1 값을 0~1023에서 0~100으로 바꾸는 블록을 선택합니다.','변환 블록을 변수 단계의 값 자리에 넣습니다.','변환 범위의 100을 5로 바꿉니다.','생김새: 단계1 모양으로 바꾸기','자료: 변수 단계 값을 선택합니다.','계산: 단계 값 + 1을 결합하여 모양 번호로 사용합니다.','하드웨어: 디지털 10번 핀을 255로 정하기','계산: 10 × 10 블록을 선택합니다.','255 대신 곱셈 블록을 넣습니다.','자료: 변수 단계 값을 선택합니다.','첫 번째 10 대신 단계 값을 넣습니다.','두 번째 10을 25로 바꿉니다. 다음을 눌러 최종 실행결과를 확인하세요.'];
+const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀을 켭니다. 실행 결과를 확인하세요.','','흐름: 계속 반복하기를 연결합니다. 이후 코드는 반복문 안에 넣습니다.','하드웨어: A1 값을 0~1023에서 0~100으로 바꾸는 블록을 선택합니다.','변환 블록을 변수 단계의 값 자리에 넣습니다.','변환 범위의 100을 5로 바꿉니다.','생김새: 단계1 모양으로 바꾸기','자료: 변수 단계 값을 선택합니다.','계산: 단계 값 + 1을 결합하여 모양 번호로 사용합니다.','하드웨어: 디지털 10번 핀을 255로 정하기','계산: 10 × 10 블록을 선택합니다.','255 대신 곱셈 블록을 넣습니다.','자료: 변수 단계 값을 선택합니다.','첫 번째 10 대신 단계 값을 넣습니다.','두 번째 10을 30으로 바꿉니다. 다음을 눌러 최종 실행결과를 확인하세요.'];
  const tabs=['start','start','hardware','data','flow','hardware','data','hardware','looks','data','math','hardware','math','hardware','data','hardware','math'];
  const field=x=>`<span class="field">${x}<span class="select-arrow">▼</span></span>`,num=x=>`<span class="number-field">${x}</span>`;
  const studyInstructions=['다음 버튼을 누르며 연결을 확인해 보세요.','시작하기 버튼을 클릭했을 때','디지털 13번 핀 켜기 · 옆 ▶로 실행 결과를 확인합니다.','계속 반복하기','반복문 안에 안녕! 을 말하기를 넣습니다.','하드웨어: 아날로그 A1 센서의 입력값을 선택합니다.','안녕! 자리에 센서 블록을 넣습니다. 반복문 옆 ▶로 입력을 확인합니다.','완성한 A1 반복 코드 세트를 오른쪽으로 이동합니다.','비워진 자리에 새 계속 반복하기를 만듭니다.','반복문 안에 동작이 없으므로 모터는 정지해 있습니다.','새 반복문 안에 D10 켜기를 결합하고 실행 결과를 확인합니다.','왼쪽 D10 모터와 오른쪽 A1 입력값을 각각 확인하세요.'];
@@ -23,7 +23,7 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
  q('#guideVariable').append(guideCopy(factorValue));
  const guideMap=guideCopy(map);guideMap.querySelectorAll('.number-field')[3].textContent='5';
  const guideInputBlock=guideCopy(code.querySelector('[data-entry-step="6"]'));guideInputBlock.classList.add('entry-show');guideInputBlock.querySelector('span:not(.field):not(.select-arrow)').append(guideMap);q('#guideInputHint').append(guideInputBlock);
- const guideProduct=guideCopy(product);guideProduct.firstElementChild.replaceChildren(guideCopy(factorValue));guideProduct.lastElementChild.textContent='25';
+ const guideProduct=guideCopy(product);guideProduct.firstElementChild.replaceChildren(guideCopy(factorValue));guideProduct.lastElementChild.textContent='30';
  const guideOutputBlock=guideCopy(code.querySelector('[data-entry-step="11"]'));guideOutputBlock.classList.add('entry-show');guideOutputBlock.querySelector('span:not(.field):not(.select-arrow)').replaceChildren(guideProduct);q('#guideOutputHint').append(guideOutputBlock);
  function renderGuide(){q('#guideInputHint').hidden=guideStep<1;q('#guideOutputHint').hidden=guideStep<2;q('#guideOutputEquation').hidden=guideStep<2}
  // The existing lessons reveal fixed blocks and expand their existing repeat-body.
@@ -43,7 +43,7 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
   if(step>=13){q('#taskOutput').replaceChildren(product)}else{if(!taskPalette.contains(product))taskPalette.append(product);q('#taskOutput').innerHTML=num(255)}
   product.hidden=step<12;
   if(step>=15){q('#taskFactor').replaceChildren(factorValue)}else{if(!taskPalette.contains(factorValue))taskPalette.append(factorValue);q('#taskFactor').innerHTML=num(10)}
-  factorValue.hidden=step<14;q('#taskMultiplier').textContent=step>=16?25:10;
+  factorValue.hidden=step<14;q('#taskMultiplier').textContent=step>=16?30:10;
   taskPage.querySelectorAll('.entry-tab').forEach(el=>el.classList.toggle('active-tab',el.dataset.tab===tabs[step]));
   q('#projectProgress').textContent=instructions[step];
   code.classList.toggle('running',!result.hidden||!pin.hidden);code.classList.toggle('result-running',!result.hidden);
@@ -70,7 +70,7 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
  }
  function stop(){cancelAnimationFrame(timer);timer=null;result.hidden=true;result.classList.remove('running');pin.hidden=true;studyPin.hidden=true;studyResult.hidden=true;studyResult.classList.remove('running');q('#studyMotorResult').hidden=true;q('#studyMotorResult').classList.remove('running');cancelAnimationFrame(studyTimer);studyTimer=null;renderCode();renderStudy()}
  function convert(value){return Math.max(0,Math.min(5,Math.round(Number(value)*5/1023)))}
- function updateDemo(scope,prefix,value){const level=convert(value);for(const [id,text]of [['analogValue',value],['liveStep',level],['liveNumber',level],['liveOutput',level*25],['liveFan',level?`바람 세기 ${level}단계`:'정지']])q('#'+prefix+id).textContent=text;
+ function updateDemo(scope,prefix,value){const level=convert(value);for(const [id,text]of [['analogValue',value],['liveStep',level],['liveNumber',level],['liveOutput',level*30],['liveFan',level?`바람 세기 ${level}단계`:'정지']])q('#'+prefix+id).textContent=text;
   scope.style.setProperty('--fan-period',level?`${2.4/level}s`:'2.4s');scope.classList.toggle('running',level>0);scope.querySelector('.dial-pointer').style.transform=`rotate(${-120+value/1023*240}deg)`;q('#'+prefix+'rotationDial').setAttribute('aria-valuenow',value);q('#'+prefix+'rotationInput').value=value;scope.querySelectorAll('[data-level]').forEach(el=>{const active=Number(el.dataset.level)===level;el.classList.toggle('active',active);el.setAttribute('aria-current',active?'true':'false')});if(!prefix)q('#projectNumber').textContent=level;
  }
  function cycle(scope,prefix){
@@ -127,7 +127,7 @@ const instructions=['다음 버튼을 누르며 코드를 완성해 보세요.',
  q('#projectResultClose').addEventListener('click',stop);q('#pin13Close').addEventListener('click',stop);
  window.lessonUI.bindOutside({key:'fan-project',isOpen:()=>!result.hidden,inside:'#projectResult,#projectLoopRun',close:stop});window.lessonUI.bindOutside({key:'fan-pin13',isOpen:()=>!pin.hidden,inside:'#pin13Modal,#projectPinRun',close:stop});
  sharedInput.addEventListener('input',()=>updateDemo(result,'',Number(sharedInput.value)));
- q('#projectSave').addEventListener('click',()=>{if(!completed)return;const source={project:'rotation-dc-motor',object:'숫자 버튼',variable:'단계',input:'A1',range:[0,1023,0,5],output:'D10',multiplier:25};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(source,null,2)],{type:'application/json'}));a.download='rotation-dc-motor.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+ q('#projectSave').addEventListener('click',()=>{if(!completed)return;const source={project:'rotation-dc-motor',object:'숫자 버튼',variable:'단계',input:'A1',range:[0,1023,0,5],output:'D10',multiplier:30};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(source,null,2)],{type:'application/json'}));a.download='rotation-dc-motor.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
  q('#projectComplete').addEventListener('click',()=>{if(!completed)return;localStorage.setItem('phycom-project-rotation-dc-motor-complete','1');q('#projectComplete').textContent='과제제출 ✓'});
  window.addEventListener('pagehide',()=>{stop();cancelAnimationFrame(introTimer)});show(0);
 })();
